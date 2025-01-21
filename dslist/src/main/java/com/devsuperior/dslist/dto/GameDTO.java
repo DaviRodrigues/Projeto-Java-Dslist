@@ -14,7 +14,6 @@ public class GameDTO {
 	private Double score;
 	private String imgUrl;
 	private String shortDescription;
-
 	private String longDescription;
 	
 	public GameDTO() {}
