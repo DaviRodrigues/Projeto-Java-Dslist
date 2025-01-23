@@ -24,6 +24,8 @@ Este é um projeto de aprendizado para criar uma API RESTful utilizando o framew
 
 •Spring Tool Suite (STS): IDE recomendada para desenvolvimento.
 
+•Docker: Utilizado para gerar banco de dados de homologação.
+
 # Modelo de domínio DSList
 
 ![Modelo de domínio DSList](https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/dslist-model.png)
@@ -81,6 +83,25 @@ URL: http://localhost:8080/h2-console
   •Usuário: sa
   
   •Senha: (deixe vazio)
+
+Obs. Docker
+
+Caso prefira utilizar o Docker com PostGres logo no início basta utilizar o arquivo `docker-compose.yml` dentro de `./docker`.
+
+Acesse pelo navegador depois que gerar a imagem e criei o banco *dslist* troque no application.properties para dev no lugar de test.
+
+No application-dev.properties descomente essa parte
+
+```
+#spring.jpa.properties.jakarta.persistence.schema-generation.create-source=metadata
+#spring.jpa.properties.jakarta.persistence.schema-generation.scripts.action=create
+#spring.jpa.properties.jakarta.persistence.schema-generation.scripts.create-target=create.sql
+#spring.jpa.properties.hibernate.hbm2ddl.delimiter=;
+```
+
+Dessa forma, ira gerar o arquivo *create.sql* na raiz do projeto, importe ou utilize dentro do pgadmin ou em qualquer outro SGBD.
+
+Se não possuir o docker instale em usa máquina
 
 # Testando com Postman 🧪
 Crie uma coleção no Postman para organizar os endpoints.
